@@ -4,8 +4,8 @@ resources:
   - name: source_repo
     type: GitRepo
     configuration:
-      gitProvider: kashyaprahul94_github
-      path: kashyaprahul94/test-jfrog-pipelines
+      gitProvider: GitHub
+      path: rahulnlb1/jfrog-simple-pipeline
       branches:
         include: master
  
