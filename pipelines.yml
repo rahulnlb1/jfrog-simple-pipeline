@@ -1,1 +1,36 @@
 
+
+resources:
+  - name: source_repo
+    type: GitRepo
+    configuration:
+      gitProvider: kashyaprahul94_github
+      path: kashyaprahul94/test-jfrog-pipelines
+      branches:
+        include: master
+ 
+pipelines:     
+    - name: pipelines_hello
+      steps:
+      - name: step_1
+        type: Bash
+        execution:
+          onExecute:
+            - printenv
+            - add_run_variables stepId=${step_id}
+            - add_run_variables stepletId=${steplet_id}
+          onComplete:
+            - echo "${step_name} Completed"
+
+      - name: step_2
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step_1
+        execution:
+          onExecute:
+            - printenv
+            - add_run_variables stepId=${step_id}
+            - add_run_variables stepletId=${steplet_id}
+          onComplete:
+            - echo "${step_name} Completed"
