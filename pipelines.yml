@@ -1,10 +1,10 @@
 
 
 resources:
-  - name: source_repo
+  - name: Github
     type: GitRepo
     configuration:
-      gitProvider: GitHub
+      gitProvider: Github
       path: rahulnlb1/jfrog-simple-pipeline
       branches:
         include: master
